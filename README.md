@@ -4,9 +4,9 @@
 
 ## Install
 
-1. Auto install: `curl -sL https://raw.githubusercontent.com/arthurc0102/dotfiles/master/setup.sh | sh`
+1. Auto install: `curl -sL https://raw.githubusercontent.com/billy0402/dotfiles/main/setup.sh | sh`
 2. Manual install:
-    1. Clone this repo: `git clone https://github.com/arthurc0102/dotfiles.git ~/.dotfiles`.
+    1. Clone this repo: `git clone https://github.com/billy0402/dotfiles.git ~/.dotfiles`.
     2. Run setup script: `sh ~/.dotfiles/setup.sh` or link config file to the right place by yourself.
 
 ## Setup

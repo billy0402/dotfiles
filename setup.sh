@@ -8,7 +8,7 @@ check() {
 setup_dotfiles() {
     echo "Setup dotfiles"
     if [ ! -d "$HOME/.dotfiles" ]; then
-        git clone https://github.com/arthurc0102/dotfiles.git $HOME/.dotfiles
+        git clone https://github.com/billy0402/dotfiles.git $HOME/.dotfiles
     fi
 }
 
