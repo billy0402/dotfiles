@@ -3,63 +3,49 @@ export LC_ALL=en_US.UTF-8
 export PAGER="less -FX"
 export PATH="$HOME/.local/bin:$PATH"
 
+# optionally set DEFAULT_USER in ~/.zshrc to your regular username to hide the “user@hostname” info when you’re logged in as yourself on your local machine.
+export DEFAULT_USER="$USER"
+
+# Homebrew
+export PATH="/opt/homebrew/bin:$PATH"
 export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_AUTO_UPDATE=1
 
-# 手動設定 Brew 相關的參數，需要在 Pyenv 與 MySQL 前面，避免找不到 Brew 或是與 Pyenv 的 Python 打架。
-# Copy from: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/brew/brew.plugin.zsh#L1
-if (( ! $+commands[brew] )); then
-  if [[ -x /opt/homebrew/bin/brew ]]; then
-    BREW_LOCATION="/opt/homebrew/bin/brew"
-  elif [[ -x /usr/local/bin/brew ]]; then
-    BREW_LOCATION="/usr/local/bin/brew"
-  elif [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
-    BREW_LOCATION="/home/linuxbrew/.linuxbrew/bin/brew"
-  elif [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
-    BREW_LOCATION="$HOME/.linuxbrew/bin/brew"
-  else
-    return
-  fi
+# pip
+export PIP_REQUIRE_VIRTUALENV=true
 
-  # Only add Homebrew installation to PATH, MANPATH, and INFOPATH if brew is
-  # not already on the path, to prevent duplicate entries. This aligns with
-  # the behavior of the brew installer.sh post-install steps.
-  eval "$("$BREW_LOCATION" shellenv)"
-  unset BREW_LOCATION
-fi
+# pipx
+export PIPX_HOME="$HOME/.pipx"
+export PIPX_BIN_DIR="$PIPX_HOME/bin"
+export PATH="$PIPX_BIN_DIR:$PATH"
 
-# My Scripts
-if [ -d "$HOME/.dotfiles/scripts" ]; then
-    export PATH="$HOME/.dotfiles/scripts:$PATH"
-fi
-
-# MySQL Client Config
-if command -v brew > /dev/null && [ -d "$(brew --prefix mysql-client)/bin" ]; then
-    export PATH="$(brew --prefix mysql-client)/bin:$PATH"
-elif [ -d "/usr/local/opt/mysql-client/bin" ]; then
-    export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-fi
-
-# Pipx Config
-export PIPX_HOME="$HOME/.local/share/pipx"
-
-# Pyenv Config
+# pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d $PYENV_ROOT ]; then
-    command -v pyenv > /dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
+    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
 fi
 
-# OrbStack Config
-if [ -f "$HOME/.orbstack/shell/init.zsh" ]; then
-    source $HOME/.orbstack/shell/init.zsh 2>/dev/null || :
+# pipenv
+if command -v pipenv 1>/dev/null 2>&1; then
+    # eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
+    export PIPENV_VENV_IN_PROJECT=true
 fi
 
-# 1Password SSH Config: https://developer.1password.com/docs/ssh/get-started/
-if [ -S "$HOME/.1password/agent.sock" ]; then
-    export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
-elif [ -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]; then
-    export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-fi
+# Poetry
+export POETRY_VIRTUALENVS_IN_PROJECT=true
 
-# Load local Config
-[ -f $HOME/.zprofile.local ] && source $HOME/.zprofile.local
+# nvm
+export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# RVM
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# Flutter
+export PATH="$PATH:$HOME/.flutter/bin"
+
+# OrbStack
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
