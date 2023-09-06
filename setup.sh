@@ -32,20 +32,20 @@ setup_zsh() {
     fi
 }
 
-setup_pipx() {
-    if command -v pipx > /dev/null; then
-        echo "Pipx already installed"
-    else
-        echo "Run setup-pipx.sh to install pipx"
-    fi
-}
-
 setup_vim() {
     echo "Setup vim"
     if [ ! -f "$HOME/.vimrc" ]; then
         ln -svf $HOME/.dotfiles/vim/vimrc $HOME/.vimrc
     else
         echo "Skip vim setup because config file already found"
+    fi
+}
+
+setup_pipx() {
+    if command -v pipx > /dev/null; then
+        echo "Pipx already installed"
+    else
+        echo "Run setup-pipx.sh to install pipx"
     fi
 }
 
@@ -82,9 +82,9 @@ main() {
     echo
     setup_zsh
     echo
-    setup_pipx
-    echo
     setup_vim
+    echo
+    setup_pipx
     echo
     install_pyenv
     echo
