@@ -12,19 +12,6 @@ setup_dotfiles() {
     fi
 }
 
-setup_tmux() {
-    echo "Setup tmux"
-    if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-        git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
-    fi
-
-    ln -svf $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
-
-    if [ ! -f "$HOME/.tmux.local.conf" ]; then
-        cp -v $HOME/.dotfiles/tmux/tmux.local.conf $HOME/.tmux.local.conf
-    fi
-}
-
 setup_git() {
     echo "Setup git"
     ln -svf $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
@@ -86,37 +73,10 @@ install_nvm() {
     fi
 }
 
-setup_lazygit() {
-    local lazygit_dir
-
-    if [ "$(uname)" == "Darwin" ]; then
-        lazygit_dir="$HOME/Library/Application Support/lazygit"
-    else
-        lazygit_dir="$HOME/.config/lazygit"
-    fi
-
-    mkdir -p "$lazygit_dir"
-    ln -svf $HOME/.dotfiles/lazygit/config.yml "$lazygit_dir/config.yml"
-}
-
-setup_emacs() {
-    echo "Setup emacs"
-
-    if [ ! -d "$HOME/.emacs.d" ]; then
-        git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
-    else
-        echo "Skip spacemacs download becasuse '.emacs.d' folder exists"
-    fi
-
-    ln -svf $HOME/.dotfiles/emacs/spacemacs $HOME/.spacemacs
-}
-
 main() {
     check
     echo
     setup_dotfiles
-    echo
-    setup_tmux
     echo
     setup_git
     echo
@@ -129,10 +89,6 @@ main() {
     install_pyenv
     echo
     install_nvm
-    echo
-    setup_lazygit
-    echo
-    setup_emacs
 }
 
 main
