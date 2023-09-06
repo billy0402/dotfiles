@@ -15,7 +15,6 @@ setup_dotfiles() {
 setup_git() {
     echo "Setup git"
     ln -svf $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
-    ln -svf $HOME/.dotfiles/git/czrc $HOME/.czrc
 
     if [ ! -f "$HOME/.gitconfig.user" ]; then
         cp -v $HOME/.dotfiles/git/gitconfig.user $HOME/.gitconfig.user
@@ -41,36 +40,70 @@ setup_vim() {
     fi
 }
 
-setup_pipx() {
+load_homebrew() {
+    export PATH="$PATH:/opt/homebrew/bin"
+    export HOMEBREW_NO_ANALYTICS=1
+    export HOMEBREW_NO_AUTO_UPDATE=1
+}
+
+install_pipx() {
     if command -v pipx > /dev/null; then
         echo "Pipx already installed"
     else
-        echo "Run setup-pipx.sh to install pipx"
+        echo "Install pipx"
+        brew install pipx
     fi
 }
 
 install_pyenv() {
-    if [ ! -d "$HOME/.pyenv" ]; then
+    if command -v pyenv > /dev/null; then
+        echo "Pyenv already installed"
+    else
         echo "Install pyenv"
         curl https://pyenv.run | bash
+    fi
+}
+
+install_pipenv() {
+    if command -v pipenv > /dev/null; then
+        echo "Pipenv already installed"
     else
-        echo "Pyenv already exists"
+        echo "Install pipenv"
+        brew install pipenv
     fi
 }
 
 install_nvm() {
-    local nvm_dir
-
-    nvm_dir="$HOME/.nvm"
-
-    if [ ! -d "$nvm_dir" ]; then
-        echo "Install nvm"
-        git clone https://github.com/nvm-sh/nvm.git "$nvm_dir"
-        cd "$nvm_dir"
-        git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+    if command -v nvm > /dev/null; then
+        echo "NVM already installed"
     else
-        echo "Nvm already exists"
+        echo "Install NVM"
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
     fi
+}
+
+install_rvm() {
+    if command -v rvm > /dev/null; then
+        echo "RVM already installed"
+    else
+        echo "Install rvm"
+        \curl -sSL https://get.rvm.io | bash -s stable
+    fi
+}
+
+install_flutter() {
+    if command -v flutter > /dev/null; then
+        echo "Flutter already installed"
+    else
+        echo "Install flutter"
+        git clone https://github.com/flutter/flutter.git -b stable $HOME/.flutter
+    fi
+}
+
+install_brew_packages() {
+    brew install exiftool geckodriver tree
+    brew install --cask ngrok
+    brew update && brew upgrade && brew cleanup
 }
 
 main() {
@@ -84,11 +117,21 @@ main() {
     echo
     setup_vim
     echo
-    setup_pipx
+    load_homebrew
+    echo
+    install_pipx
     echo
     install_pyenv
     echo
+    install_pipenv
+    echo
     install_nvm
+    echo
+    install_rvm
+    echo
+    install_flutter
+    echo
+    install_brew_packages
 }
 
 main

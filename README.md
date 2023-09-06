@@ -33,6 +33,13 @@ Example for `.gitconfig.work`
   name = Your Name
 ```
 
+### Homebrew
+
+```shell
+$ xcode-select --install
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 ### Pyenv
 
 Install pyenv: `curl https://pyenv.run | bash`
