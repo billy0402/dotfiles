@@ -1,0 +1,135 @@
+{
+  // Text Editor
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "editor.formatOnSave": true,
+  "editor.renderWhitespace": "all",
+
+  "files.associations": {
+    "**/templates/**/*.html": "django-html"
+  },
+  "files.insertFinalNewline": true,
+  "files.readonlyInclude": {
+    "node_modules/**/*": true,
+    ".venv/**/*": true
+  },
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+
+  // Workbench
+  "workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground1": "#FFD700",
+    "editorBracketHighlight.foreground2": "#DA70D6",
+    "editorBracketHighlight.foreground3": "#179fff"
+  },
+  "workbench.colorTheme": "Nord",
+
+  // Window
+  "window.zoomLevel": 1,
+
+  // Features
+  "explorer.compactFolders": false,
+
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.venv": true,
+    "**/env": true,
+    "**/venv": true,
+    "**/.mypy_cache": true,
+    "**/__pycache__": true
+  },
+
+  "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline",
+
+  // Application
+  "update.mode": "none",
+
+  "telemetry.telemetryLevel": "off",
+
+  // Security
+  "security.workspace.trust.enabled": false,
+
+  // Extensions
+  "cSpell.words": [],
+
+  "codesnap.showWindowControls": false,
+  "codesnap.showWindowTitle": true,
+
+  "github.copilot.enable": {
+    "*": false
+  },
+
+  "csscomb.formatOnSave": true,
+  "csscomb.preset": "zen",
+
+  "emmet.includeLanguages": {
+    "django-html": "html",
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+
+  "eslint.run": "onSave",
+
+  "leetcode.workspaceFolder": "/Users/user/Documents/GitHub/leetcode",
+  "leetcode.defaultLanguage": "python3",
+
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "savePath": "/assets/css",
+      "extensionName": ".css"
+    }
+  ],
+
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.trailingComma": "all",
+
+  "projectManager.git.baseFolders": [
+    "$home\\Documents\\GitHub",
+    "$home\\Documents\\GitLab"
+  ],
+
+  "python.defaultInterpreterPath": ".venv/bin/python",
+  "python.languageServer": "Pylance",
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.rulers": [79],
+    "editor.defaultFormatter": "eeyore.yapf"
+  },
+
+  "code-runner.enableAppInsights": false,
+  "code-runner.executorMap": {
+    "python": "$pythonPath -u $fullFileName"
+  },
+
+  // Language
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[django-html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

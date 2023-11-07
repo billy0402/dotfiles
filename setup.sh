@@ -40,6 +40,15 @@ setup_vim() {
     fi
 }
 
+setup_vscode() {
+    echo "Setup vscode"
+    if [ ! -f "$HOME/Library/Application Support/Code/User/settings.json" ]; then
+        ln -s $HOME/.dotfiles/.vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
+    else
+        echo "Skip vscode setup because config file already found"
+    fi
+}
+
 load_homebrew() {
     export PATH="$PATH:/opt/homebrew/bin"
     export HOMEBREW_NO_ANALYTICS=1
@@ -116,6 +125,8 @@ main() {
     setup_zsh
     echo
     setup_vim
+    echo
+    setup_vscode
     echo
     load_homebrew
     echo
