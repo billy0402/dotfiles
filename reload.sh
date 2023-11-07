@@ -6,6 +6,15 @@ install_python() {
     fi
 }
 
+install_poetry() {
+    if command -v poetry > /dev/null; then
+        echo "Poetry already installed"
+    else
+        echo "Install poetry"
+        curl -sSL https://install.python-poetry.org | python3 -
+    fi
+}
+
 install_node() {
     if [ -d $NVM_DIR ]; then
         source $NVM_DIR/nvm.sh
@@ -17,16 +26,8 @@ install_node() {
 install_ruby() {
     if command -v rvm > /dev/null; then
         echo "Install ruby"
-        rvm install 2.7.2
-    fi
-}
-
-install_poetry() {
-    if command -v poetry > /dev/null; then
-        echo "Poetry already installed"
-    else
-        echo "Install poetry"
-        curl -sSL https://install.python-poetry.org | python3 -
+        rvm install 3.2.2 --with-openssl-dir=$(brew --prefix openssl@3)
+        # rvm --default use 3.2.2
     fi
 }
 
@@ -56,11 +57,11 @@ setup_flutter() {
 main() {
     install_python
     echo
+    install_poetry
+    echo
     install_node
     echo
     install_ruby
-    echo
-    install_poetry
     echo
     install_cocoapods
     echo
