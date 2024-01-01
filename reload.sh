@@ -1,8 +1,8 @@
 install_python() {
     if command -v pyenv > /dev/null; then
         echo "Install python"
-        pyenv install 3.11.5
-        pyenv global 3.11.5
+        pyenv install 3.11.7
+        pyenv global 3.11.7
     fi
 }
 
