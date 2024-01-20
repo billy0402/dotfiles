@@ -1,7 +1,7 @@
 {
   // Text Editor
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": "explicit"
   },
   "editor.formatOnSave": true,
   "editor.renderWhitespace": "all",
@@ -39,6 +39,8 @@
     "**/.mypy_cache": true,
     "**/__pycache__": true
   },
+
+  "extensions.ignoreRecommendations": true,
 
   "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline",
 
