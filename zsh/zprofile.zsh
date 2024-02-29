@@ -46,6 +46,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Flutter
 export PATH="$PATH:$HOME/.flutter/bin"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+export CHROME_EXECUTABLE="/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"
 
 # OrbStack
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
