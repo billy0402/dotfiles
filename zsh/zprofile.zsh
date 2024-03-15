@@ -49,5 +49,9 @@ export PATH="$PATH:$HOME/.flutter/bin"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export CHROME_EXECUTABLE="/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"
 
+# React Native
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+
 # OrbStack
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
