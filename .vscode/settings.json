@@ -98,7 +98,7 @@
   "[python]": {
     "editor.tabSize": 4,
     "editor.rulers": [79],
-    "editor.defaultFormatter": "eeyore.yapf"
+    "editor.defaultFormatter": "charliermarsh.ruff"
   },
 
   "code-runner.enableAppInsights": false,
