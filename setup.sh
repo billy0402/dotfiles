@@ -21,6 +21,14 @@ setup_git() {
     fi
 }
 
+install_zsh() {
+    if command zsh --version > /dev/null; then
+        echo "zsh already installed"
+    else
+        sudo apt install zsh
+    fi
+}
+
 setup_zsh() {
     echo "Setup zsh"
     ln -svf $HOME/.dotfiles/zsh/zshrc.zsh $HOME/.zshrc
@@ -42,77 +50,49 @@ setup_vim() {
 
 setup_vscode() {
     echo "Setup vscode"
-    if [ ! -f "$HOME/Library/Application Support/Code/User/settings.json" ]; then
-        ln -s $HOME/.dotfiles/.vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
+    if [ ! -f "$HOME/.config/Code/User/settings.json" ]; then
+        ln -s $HOME/.dotfiles/.vscode/settings.json "$HOME/.config/Code/User/settings.json"
+    else
+        echo "Skip vscode setup because config file already found"
+    fi
+
+    if [ ! -f "$HOME/.vscode-server/data/Machine/settings.json" ]; then
+        ln -s $HOME/.dotfiles/.vscode/settings.json "$HOME/.vscode-server/data/Machine/settings.json"
     else
         echo "Skip vscode setup because config file already found"
     fi
 }
 
-load_homebrew() {
-    export PATH="$PATH:/opt/homebrew/bin"
-    export HOMEBREW_NO_ANALYTICS=1
-    export HOMEBREW_NO_AUTO_UPDATE=1
-}
-
-install_pipx() {
+setup_pipx() {
     if command -v pipx > /dev/null; then
         echo "Pipx already installed"
     else
-        echo "Install pipx"
-        brew install pipx
+        echo "Run setup-pipx.sh to install pipx"
     fi
 }
 
 install_pyenv() {
-    if command -v pyenv > /dev/null; then
-        echo "Pyenv already installed"
-    else
+    if [ ! -d "$HOME/.pyenv" ]; then
         echo "Install pyenv"
         curl https://pyenv.run | bash
-    fi
-}
-
-install_pipenv() {
-    if command -v pipenv > /dev/null; then
-        echo "Pipenv already installed"
     else
-        echo "Install pipenv"
-        brew install pipenv
+        echo "Pyenv already exists"
     fi
 }
 
 install_nvm() {
-    if command -v nvm > /dev/null; then
-        echo "NVM already installed"
-    else
-        echo "Install NVM"
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-    fi
-}
+    local nvm_dir
 
-install_rvm() {
-    if command -v rvm > /dev/null; then
-        echo "RVM already installed"
-    else
-        echo "Install rvm"
-        \curl -sSL https://get.rvm.io | bash -s stable
-    fi
-}
+    nvm_dir="$HOME/.nvm"
 
-install_flutter() {
-    if command -v flutter > /dev/null; then
-        echo "Flutter already installed"
+    if [ ! -d "$nvm_dir" ]; then
+        echo "Install nvm"
+        git clone https://github.com/nvm-sh/nvm.git "$nvm_dir"
+        cd "$nvm_dir"
+        git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
     else
-        echo "Install flutter"
-        git clone https://github.com/flutter/flutter.git -b stable $HOME/.flutter
+        echo "Nvm already exists"
     fi
-}
-
-install_brew_packages() {
-    brew install exiftool geckodriver tree
-    brew install --cask ngrok
-    brew update && brew upgrade && brew cleanup
 }
 
 main() {
@@ -122,27 +102,19 @@ main() {
     echo
     setup_git
     echo
+    install_zsh
+    echo
     setup_zsh
     echo
     setup_vim
     echo
     setup_vscode
     echo
-    load_homebrew
-    echo
-    install_pipx
+    setup_pipx
     echo
     install_pyenv
     echo
-    install_pipenv
-    echo
     install_nvm
-    echo
-    install_rvm
-    echo
-    install_flutter
-    echo
-    install_brew_packages
 }
 
 main
