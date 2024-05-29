@@ -21,6 +21,14 @@ setup_git() {
     fi
 }
 
+install_zsh() {
+    if command zsh --version > /dev/null; then
+        echo "zsh already installed"
+    else
+        sudo apt install zsh
+    fi
+}
+
 setup_zsh() {
     echo "Setup zsh"
     ln -svf $HOME/.dotfiles/zsh/zshrc.zsh $HOME/.zshrc
@@ -42,8 +50,14 @@ setup_vim() {
 
 setup_vscode() {
     echo "Setup vscode"
-    if [ ! -f "$HOME/Library/Application Support/Code/User/settings.json" ]; then
-        ln -s $HOME/.dotfiles/.vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
+    if [ ! -f "$HOME/.config/Code/User/settings.json" ]; then
+        ln -s $HOME/.dotfiles/.vscode/settings.json "$HOME/.config/Code/User/settings.json"
+    else
+        echo "Skip vscode setup because config file already found"
+    fi
+
+    if [ ! -f "$HOME/.vscode-server/data/Machine/settings.json" ]; then
+        ln -s $HOME/.dotfiles/.vscode/settings.json "$HOME/.vscode-server/data/Machine/settings.json"
     else
         echo "Skip vscode setup because config file already found"
     fi
@@ -66,30 +80,14 @@ install_nvm() {
     fi
 }
 
-install_rvm() {
-    if command -v rvm > /dev/null; then
-        echo "RVM already installed"
-    else
-        echo "Install rvm"
-        \curl -sSL https://get.rvm.io | bash -s stable
-    fi
-}
-
-install_flutter() {
-    if command -v flutter > /dev/null; then
-        echo "Flutter already installed"
-    else
-        echo "Install flutter"
-        git clone https://github.com/flutter/flutter.git -b stable $HOME/.flutter
-    fi
-}
-
 main() {
     check
     echo
     setup_dotfiles
     echo
     setup_git
+    echo
+    install_zsh
     echo
     setup_zsh
     echo
@@ -100,10 +98,6 @@ main() {
     install_uv
     echo
     install_nvm
-    echo
-    install_rvm
-    echo
-    install_flutter
 }
 
 main
