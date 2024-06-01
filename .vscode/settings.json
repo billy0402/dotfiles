@@ -1,6 +1,7 @@
 {
   // Text Editor
   "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
     "source.organizeImports": "explicit"
   },
   "editor.formatOnSave": true,
@@ -73,6 +74,7 @@
 
   "eslint.run": "onSave",
 
+  "leetcode.allowReportData": false,
   "leetcode.workspaceFolder": "/Users/user/Documents/GitHub/leetcode",
   "leetcode.defaultLanguage": "python3",
 
@@ -83,6 +85,8 @@
       "extensionName": ".css"
     }
   ],
+
+  "markdown.preview.scrollPreviewWithEditor": false,
 
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
@@ -106,6 +110,8 @@
     "python": "$pythonPath -u $fullFileName"
   },
 
+  "redhat.telemetry.enabled": false,
+
   // Language
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -117,6 +123,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[scss]": {
