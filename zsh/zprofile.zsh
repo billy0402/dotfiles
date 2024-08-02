@@ -23,7 +23,7 @@ export PATH="$PIPX_BIN_DIR:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d $PYENV_ROOT ]; then
     command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
+    # eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
 fi
 

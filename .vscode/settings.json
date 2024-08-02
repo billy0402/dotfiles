@@ -79,7 +79,7 @@
   "jest.runMode": "on-demand",
 
   "leetcode.allowReportData": false,
-  "leetcode.workspaceFolder": "/Users/user/Documents/GitHub/leetcode",
+  "leetcode.workspaceFolder": "/home/billy/GitHub/leetcode",
   "leetcode.defaultLanguage": "python3",
 
   "liveSassCompile.settings.formats": [
@@ -96,10 +96,7 @@
   "prettier.jsxSingleQuote": true,
   "prettier.trailingComma": "all",
 
-  "projectManager.git.baseFolders": [
-    "$home\\Documents\\GitHub",
-    "$home\\Documents\\GitLab"
-  ],
+  "projectManager.git.baseFolders": ["$home\\GitHub", "$home\\GitLab"],
 
   "python.defaultInterpreterPath": ".venv/bin/python",
   "python.languageServer": "Pylance",
