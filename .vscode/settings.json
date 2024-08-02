@@ -5,10 +5,13 @@
     "source.organizeImports": "explicit"
   },
   "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
 
   "files.associations": {
-    "**/templates/**/*.html": "django-html"
+    "**/templates/**/*.html": "django-html",
+    "**/templates/**/*.txt": "django-txt",
+    "**/*.html": "html"
   },
   "files.insertFinalNewline": true,
   "files.readonlyInclude": {
@@ -34,11 +37,10 @@
 
   "search.exclude": {
     "**/node_modules": true,
+    "package-lock.json": true,
     "**/.venv": true,
-    "**/env": true,
-    "**/venv": true,
-    "**/.mypy_cache": true,
-    "**/__pycache__": true
+    "Pipfile.lock": true,
+    "poetry.lock": true
   },
 
   "extensions.ignoreRecommendations": true,
@@ -74,6 +76,8 @@
 
   "eslint.run": "onSave",
 
+  "jest.runMode": "on-demand",
+
   "leetcode.allowReportData": false,
   "leetcode.workspaceFolder": "/Users/user/Documents/GitHub/leetcode",
   "leetcode.defaultLanguage": "python3",
@@ -88,6 +92,8 @@
 
   "markdown.preview.scrollPreviewWithEditor": false,
 
+  "Notes.notesLocation": "/Users/user/Documents/GitHub/note",
+
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
   "prettier.trailingComma": "all",
@@ -99,9 +105,10 @@
 
   "python.defaultInterpreterPath": ".venv/bin/python",
   "python.languageServer": "Pylance",
+  "python.testing.pytestEnabled": true,
   "[python]": {
     "editor.tabSize": 4,
-    "editor.rulers": [79],
+    "editor.rulers": [88],
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
 
@@ -112,18 +119,12 @@
 
   "redhat.telemetry.enabled": false,
 
-  // Language
+  // Default Formatter
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[django-html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": null
   },
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -141,6 +142,12 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
