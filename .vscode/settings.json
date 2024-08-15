@@ -5,6 +5,7 @@
     "source.organizeImports": "explicit"
   },
   "editor.formatOnSave": true,
+  "editor.linkedEditing": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
 
@@ -23,9 +24,13 @@
 
   // Workbench
   "workbench.colorCustomizations": {
-    "editorBracketHighlight.foreground1": "#FFD700",
-    "editorBracketHighlight.foreground2": "#DA70D6",
-    "editorBracketHighlight.foreground3": "#179fff"
+    "editorBracketHighlight.foreground1": "#cc99cc",
+    "editorBracketHighlight.foreground2": "#6699cc",
+    "editorBracketHighlight.foreground3": "#66cccc",
+    "editorBracketHighlight.foreground4": "#99cc99",
+    "editorBracketHighlight.foreground5": "#ffcc66",
+    "editorBracketHighlight.foreground6": "#f99157",
+    "editorBracketHighlight.unexpectedBracket.foreground": "#f2777a"
   },
   "workbench.colorTheme": "Nord",
 
