@@ -8,17 +8,9 @@
   "editor.linkedEditing": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
+  "editor.stickyScroll.enabled": false,
 
-  "files.associations": {
-    "**/templates/**/*.html": "django-html",
-    "**/templates/**/*.txt": "django-txt",
-    "**/*.html": "html"
-  },
   "files.insertFinalNewline": true,
-  "files.readonlyInclude": {
-    "node_modules/**/*": true,
-    ".venv/**/*": true
-  },
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
 
@@ -39,14 +31,6 @@
 
   // Features
   "explorer.compactFolders": false,
-
-  "search.exclude": {
-    "**/node_modules": true,
-    "package-lock.json": true,
-    "**/.venv": true,
-    "Pipfile.lock": true,
-    "poetry.lock": true
-  },
 
   "extensions.ignoreRecommendations": true,
 
@@ -70,34 +54,9 @@
     "*": false
   },
 
-  "csscomb.formatOnSave": true,
-  "csscomb.preset": "zen",
-
-  "emmet.includeLanguages": {
-    "django-html": "html",
-    "javascript": "javascriptreact",
-    "typescript": "typescriptreact"
-  },
-
-  "eslint.run": "onSave",
-
-  "jest.runMode": "on-demand",
-
   "leetcode.allowReportData": false,
   "leetcode.workspaceFolder": "/Users/user/Documents/GitHub/leetcode",
   "leetcode.defaultLanguage": "python3",
-
-  "liveSassCompile.settings.formats": [
-    {
-      "format": "expanded",
-      "savePath": "/assets/css",
-      "extensionName": ".css"
-    }
-  ],
-
-  "markdown.preview.scrollPreviewWithEditor": false,
-
-  "Notes.notesLocation": "/Users/user/Documents/GitHub/note",
 
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
@@ -107,15 +66,6 @@
     "$home\\Documents\\GitHub",
     "$home\\Documents\\GitLab"
   ],
-
-  "python.defaultInterpreterPath": ".venv/bin/python",
-  "python.languageServer": "Pylance",
-  "python.testing.pytestEnabled": true,
-  "[python]": {
-    "editor.tabSize": 4,
-    "editor.rulers": [88],
-    "editor.defaultFormatter": "charliermarsh.ruff"
-  },
 
   "code-runner.enableAppInsights": false,
   "code-runner.executorMap": {
@@ -128,25 +78,10 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[django-html]": {
-    "editor.defaultFormatter": null
-  },
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
