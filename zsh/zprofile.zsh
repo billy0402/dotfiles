@@ -54,4 +54,14 @@ export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 
 # OrbStack
-source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+if [ -f "$HOME/.orbstack/shell/init.zsh" ]; then
+    source $HOME/.orbstack/shell/init.zsh 2>/dev/null || :
+fi
+
+# Load local Config
+[ -f $HOME/.zprofile.local ] && source $HOME/.zprofile.local
+
+# My Scripts
+if [ -d "$HOME/.dotfiles/scripts" ]; then
+    export PATH="$HOME/.dotfiles/scripts:$PATH"
+fi
