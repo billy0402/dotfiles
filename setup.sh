@@ -49,30 +49,11 @@ setup_vscode() {
     fi
 }
 
-install_pipx() {
-    if command -v pipx > /dev/null; then
-        echo "Pipx already installed"
+install_uv() {
+    if command -v uv > /dev/null; then
+        echo "UV already installed"
     else
-        echo "Install pipx"
-        brew install pipx
-    fi
-}
-
-install_pyenv() {
-    if command -v pyenv > /dev/null; then
-        echo "Pyenv already installed"
-    else
-        echo "Install pyenv"
-        curl https://pyenv.run | bash
-    fi
-}
-
-install_pipenv() {
-    if command -v pipenv > /dev/null; then
-        echo "Pipenv already installed"
-    else
-        echo "Install pipenv"
-        brew install pipenv
+        curl -LsSf https://astral.sh/uv/install.sh | sh
     fi
 }
 
@@ -116,11 +97,7 @@ main() {
     echo
     setup_vscode
     echo
-    install_pipx
-    echo
-    install_pyenv
-    echo
-    install_pipenv
+    install_uv
     echo
     install_nvm
     echo

@@ -1,8 +1,7 @@
 install_python() {
-    if command -v pyenv > /dev/null; then
+    if command -v uv > /dev/null; then
         echo "Install python"
-        pyenv install 3.11.7
-        pyenv global 3.11.7
+        uv python install 3.11.7
     fi
 }
 
@@ -11,7 +10,7 @@ install_poetry() {
         echo "Poetry already installed"
     else
         echo "Install poetry"
-        curl -sSL https://install.python-poetry.org | python3 -
+        uv tool install poetry
     fi
 }
 

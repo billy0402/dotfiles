@@ -14,24 +14,8 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # pip
 export PIP_REQUIRE_VIRTUALENV=true
 
-# pipx
-export PIPX_HOME="$HOME/.pipx"
-export PIPX_BIN_DIR="$PIPX_HOME/bin"
-export PATH="$PIPX_BIN_DIR:$PATH"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-if [ -d $PYENV_ROOT ]; then
-    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
-
-# pipenv
-if command -v pipenv 1>/dev/null 2>&1; then
-    # eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
-    export PIPENV_VENV_IN_PROJECT=true
-fi
+# uv
+source "$HOME/.cargo/env"
 
 # Poetry
 export POETRY_VIRTUALENVS_IN_PROJECT=true

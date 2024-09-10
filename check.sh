@@ -13,19 +13,11 @@ brew list --cask
 brew doctor
 echo
 
-echo pipx
-pipx --version
-echo
-
-echo pyenv
-pyenv --version
-pyenv versions
-python --version
-pip list
-echo
-
-echo pipenv
-pipenv --version
+echo uv
+uv --version
+uv python list
+uv pip list
+uv tool list
 echo
 
 echo poetry
