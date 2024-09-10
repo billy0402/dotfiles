@@ -7,8 +7,7 @@
 1. Auto install: `curl -sL https://raw.githubusercontent.com/billy0402/dotfiles/main/setup.sh | sh`
 2. Manual install:
     1. Clone this repo: `git clone https://github.com/billy0402/dotfiles.git ~/.dotfiles`.
-    2. Install homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-    3. Run setup script: `sh ~/.dotfiles/setup.sh` or link config file to the right place by yourself.
+    2. Run setup script: `sh ~/.dotfiles/setup.sh` or link config file to the right place by yourself.
 
 ## Setup
 

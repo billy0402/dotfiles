@@ -49,12 +49,6 @@ setup_vscode() {
     fi
 }
 
-load_homebrew() {
-    export PATH="$PATH:/opt/homebrew/bin"
-    export HOMEBREW_NO_ANALYTICS=1
-    export HOMEBREW_NO_AUTO_UPDATE=1
-}
-
 install_pipx() {
     if command -v pipx > /dev/null; then
         echo "Pipx already installed"
@@ -109,12 +103,6 @@ install_flutter() {
     fi
 }
 
-install_brew_packages() {
-    brew install exiftool geckodriver tree
-    brew install --cask ngrok
-    brew update && brew upgrade && brew cleanup
-}
-
 main() {
     check
     echo
@@ -128,8 +116,6 @@ main() {
     echo
     setup_vscode
     echo
-    load_homebrew
-    echo
     install_pipx
     echo
     install_pyenv
@@ -141,8 +127,6 @@ main() {
     install_rvm
     echo
     install_flutter
-    echo
-    install_brew_packages
 }
 
 main
